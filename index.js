@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("<h1>Gestión Global de Seguros</h1><p>Webhook operativo.</p>");
+});
+
 const VERIFY_TOKEN = "ggseguros2024";
 
 app.get("/webhook", (req, res) => {
@@ -22,3 +26,4 @@ app.post("/webhook", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Webhook activo en Render"));
+
